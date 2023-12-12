@@ -2,6 +2,7 @@ package com.ecommerce.allHere.data.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDate;
 
 
@@ -21,9 +22,14 @@ public class AppUser {
     private String fullName;
     @Column(unique = true)
     private String email;
+    @Enumerated(value = EnumType.STRING)
     private Gender gender;
+    @Column(columnDefinition = "Timestamp")
     private LocalDate dateCreated;
     @Column(unique = true)
     private String phoneNumber;
     private String address;
+    private boolean isAdmin;
+    private boolean isCustomer;
+    private boolean isVendor;
 }

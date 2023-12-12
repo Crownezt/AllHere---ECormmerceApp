@@ -3,18 +3,17 @@ package com.ecommerce.allHere.data.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
-public class Order {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long id;
-    @OneToMany(mappedBy = "order")
-    private List<Product> products;
+    private Long Id;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 }
